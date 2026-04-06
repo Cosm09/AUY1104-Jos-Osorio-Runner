@@ -1,8 +1,16 @@
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Solo cuando haces un tag tipo v1.0.0
 
 jobs:
-  mi-job:
+  usar-receta-compartida:
     uses: Cosm09/AUY1104-Jos-Osorio-Main/.github/workflows/deploy-api.yaml@main
+
+    with:
+      image-name: demo-api
+      image-tag: ${{ github.ref_name }}
+
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
