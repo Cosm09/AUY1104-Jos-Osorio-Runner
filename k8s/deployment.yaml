@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: cosm09/demo-api:latest
+          image: cosm09/demo-api:test falla
           imagePullPolicy: Always
           ports:
             - name: http
